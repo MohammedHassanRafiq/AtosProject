@@ -9,16 +9,16 @@ import org.junit.jupiter.api.Test;
 
 public class CustomerTest {
 	
-	RoyalMail r = new RoyalMail();//the class we are testing
+	RoyalMail r = new RoyalMail();
 	RoyalMail x;
 
-	@BeforeAll //JUNIT4 - BeforeClass
+	@BeforeAll
 	public static void start() {
 		System.out.println("Before All");
-		//connecting to a database
+		
 	}
 
-	@BeforeEach //JUNIT4 - Before
+	@BeforeEach 
 	public void setUp() {
 		r = new RoyalMail("x", "g", 44, "erdington");
 		r.setFirstname("Ash");
@@ -26,19 +26,17 @@ public class CustomerTest {
 		r.setPhoneNumber(044);
 		r.setAddress("erdington");
 		System.out.println("Before Each");
-		//initialise test data
+		
 	}
 
 	@Test
 	public void testGetFirstname() {
-		//test if your method does what you expect it to, you need assertions
 		Assertions.assertEquals("x",r.getFirstname());
 		Assertions.assertNotEquals(null, r.getFirstname());
 		System.out.println("Test");
 	}
 	@Test
 	public void testGetSecondname() {
-		//test if your method does what you expect it to, you need assertions
 		Assertions.assertEquals("g",r.getSecondname());
 		Assertions.assertNotEquals(null, r.getSecondname());
 		System.out.println("Test2");
@@ -64,20 +62,14 @@ public class CustomerTest {
 		Assertions.assertEquals(out, r.toString());
 		System.out.println("Test 3");
 	}
-
-	//2 records
-	//create test - passed in 1 record
-	//read test - 2 record outputs
 	
-	@AfterEach //JUNIT4 - After
+	@AfterEach 
 	public void clean() {
 		System.out.println("After Each");
-		//clear any data
 	}
 
-	@AfterAll //JUNIT4 - AfterClass
+	@AfterAll
 	public static void stop() {
 		System.out.println("After all");
-		//closing connection
 	}
 }
